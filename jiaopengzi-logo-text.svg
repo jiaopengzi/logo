@@ -1,0 +1,359 @@
+<svg id="jiaopengzi-logo-svg" width="1790" height="550" viewBox="0 0 1790 550" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!-- logo-J -->
+    <svg id="jiaopengzi-logo" x="0" y="0" width="550" height="550" viewBox="-230 -345 550 550">
+        <rect id="jiaopengzi-logo-svg-background" x="-230" y="-345" width="550" height="550" rx="210" ry="210"
+            fill="#1E2858" />
+        <path id="jiaopengzi-logo-svg-j" d="
+    M -10 10 
+    L -59.372539 10
+    A 80,80 1 0,0 20,100
+    A 130,130 1 0,0 150,-30
+    L 150 -240
+    L 20 -240
+    L 20 -160
+    L 70 -160
+    L 70 -30
+    A 50,50 1 0,1 -10,10
+    Z" fill="#C89828" stroke="#C89828"></path>
+    </svg>
+    <!-- 焦 -->
+    <svg id="jiaopengzi-text-jiao" x="650" y="0" width="340" height="550" viewBox="0 0 340 550">
+        <path id="jiaopengzi-text-jiao-danrenpang" d="
+        M 10 120
+        L 63 40
+        A 50 50, 0, 0, 1, 63 106
+        L 63 276
+        A 50 50, 0, 0, 1, 23 236
+        L 23 144
+        L 10 155
+        A 50 50, 0, 0, 1, 10 120
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-dian" d="
+        M 165 50
+        A 50 50, 0, 0, 1, 210 50
+        L 228 73
+        A 50 50, 0, 0, 1, 193 73
+        L 165 50
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-sihengyishu" d="
+        M 83 126
+        A 50 50, 0, 0, 1, 115 90
+        L 291 90
+        A 50 50, 0, 0, 1, 330 128
+        L 219 128
+        L 219 140
+        L 291 140
+        A 50 50, 0, 0, 1, 330 176
+        L 219 176
+        L 219 188
+        L 291 188
+        A 50 50, 0, 0, 1, 330 224
+        L 219 224
+        L 219 236
+        L 291 236
+        A 50 50, 0, 0, 1, 330 272
+        L 83 272
+        A 50 50, 0, 0, 1, 115 236
+        L 185 236
+        L 185 224
+        L 83 224
+        A 50 50, 0, 0, 1, 115 188
+        L 185 188
+        L 185 176
+        L 83 176
+        A 50 50, 0, 0, 1, 115 140
+        L 185 140
+        L 185 128
+        L 83 126
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-sidian1" d="
+        M 22 296
+        A 40 40, 0, 0, 1, 62 336
+        L 62 390
+        A 40 40, 0, 0, 1, 22 350
+        L 22 296
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-sidian2" d="
+        M 109 296
+        A 40 40, 0, 0, 1, 149 336
+        L 149 390
+        A 40 40, 0, 0, 1, 109 350
+        L 109 296
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-sidian3" d="M 197 296
+        A 40 40, 0, 0, 1, 237 336
+        L 237 390
+        A 40 40, 0, 0, 1, 197 350
+        L 197 296
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-jiao-sidian4" d="
+        M 287 296
+        A 40 40, 0, 0, 1, 327 336
+        L 327 390
+        A 40 40, 0, 0, 1, 287 350
+        L 287 296
+        Z" fill="#1E2858" />
+    </svg>
+
+    <!-- 棚 -->
+    <svg id="jiaopengzi-text-peng" x="1050" y="0" width="340" height="550" viewBox="0 0 340 550">
+        <path id="jiaopengzi-text-peng-mu" d="
+        M 42 40
+        A 58 58, 0, 0, 1, 63 93
+        L 105 93
+        A 50 50, 0, 0, 1, 77 133
+        L 63 133
+        L 63 345
+        A 50 50, 0, 0, 1, 42 390
+        L 42 133
+        L 2 133
+        A 50 50, 0, 0, 1, 21 93
+        L 42 93
+        L 42 50
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-pie" d="
+        M 33 140
+        L 33 310
+        A 50 50, 0, 0, 1, 12 340
+        L 12 170
+        A 50 50, 0, 0, 1, 33 140
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-na" d="
+        M 70 140
+        A 50 50, 0, 0, 1, 90 170
+        L 90 300
+        A 50 50, 0, 0, 1, 70 270
+        L 70 140
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-yue1" d="
+        M 135 74
+        L 185 74
+        A 50 50, 0, 0, 1, 215 119
+        L 215 390
+        A 50 50, 0, 0, 1, 185 340
+        L 185 119
+        L 135 119
+        L 135 340
+        A 50 50, 0, 0, 1, 105 390
+        L 105 119
+        A 50 50, 0, 0, 1, 135 74    
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-heng1" d="
+        M 130 170
+        L 200 170
+        L 200 200
+        L 130 200
+        L 130 170
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-heng2" d="
+        M 130 250
+        L 200 250
+        L 200 280
+        L 130 280
+        L 130 250
+        Z" fill="#1E2858" />
+
+        <path id="jiaopengzi-text-peng-yue2" d="
+        M 255 74
+        L 305 74
+        A 50 50, 0, 0, 1, 335 119
+        L 335 390
+        A 50 50, 0, 0, 1, 305 340
+        L 305 119
+        L 255 119
+        L 255 340
+        A 50 50, 0, 0, 1, 225 390
+        L 225 119
+        A 50 50, 0, 0, 1, 255 74    
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-heng3" d="
+        M 250 170
+        L 320 170
+        L 320 200
+        L 250 200
+        L 250 170
+        Z" fill="#1E2858" />
+        <path id="jiaopengzi-text-peng-heng4" d="
+        M 250 250
+        L 320 250
+        L 320 280
+        L 250 280
+        L 250 250
+        Z" fill="#1E2858" />
+    </svg>
+
+    <!-- 子 -->
+    <svg id="jiaopengzi-text-zi" x="1450" y="0" width="340" height="550" viewBox="0 0 340 550">
+        <path id="jiaopengzi-text-zi-zi" d="
+        M 100 60
+        L 210 60
+        A 35 35, 0, 0, 1, 240 110
+        L 185 215
+        L 300 215
+        A 50 50, 0, 0, 1, 330 245
+        L 185 245
+        L 185 390
+        A 50 50, 0, 0, 1, 155 365
+        L 155 245
+        L 10 245
+        A 50 50, 0, 0, 1, 40 215
+        L 155 215
+        A 50 50, 0, 0, 1, 160 200
+        L 215 100
+        A 8 8, 0, 0, 0, 208 90
+        L 70 90
+        A 50 50, 0, 0, 1, 100 60
+        Z" fill="#1E2858" />
+    </svg>
+    <!-- 字母 -->
+    <!-- 中心公式 = (n-1)*114+707-90 -->
+    <!-- 中心公式 = (1-1)*114+707-90 = 617 -->
+    <!-- J -->
+    <svg id="jiao-j" x="590" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+    M 220 355
+    L 170.627461 355
+    A 80,80 1 0,0 250,445
+    A 130,130 1 0,0 380,315
+    L 380 105
+    L 250 105
+    L 250 185
+    L 300 185
+    L 300 315
+    A 50,50 1 0,1 220,355
+    Z" fill="#1E2858"></path>
+    </svg>
+    <!-- I -->
+    <svg id="jiao-i" x="685" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+    M 225 105
+    L 325 105
+    L 325 440
+    L 225 440
+    L 225 105
+    Z" fill="#1E2858"></path>
+    </svg>
+    <!-- A -->
+    <svg id="jiao-a" x="780" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+    M 130 440
+    L 230 100
+    A 100,100 1 0,1 330 100
+    L 430 440
+    A 60,60 1 0,1 350 400
+    L 280 160
+    L 210 400
+    A 60,60 1 0,1 130 440
+    Z" fill="#1E2858"></path>
+        <path d="
+    M 210 280
+    L 350 280
+    L 350 370
+    L 200 370
+    L 200 280
+    Z" fill="#1E2858"></path>
+    </svg>
+    <!-- O -->
+    <svg id="jiao-o" x="905" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <ellipse cx="280" cy="270" rx="130" ry="150" fill="none" stroke="#1E2858" stroke-width="70" />
+    </svg>
+    <!-- P -->
+    <svg id="peng-p" x="1020" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+    M 170 105
+    L 270 105
+    L 270 450
+    L 170 450
+    L 170 105
+    Z" fill="#1E2858"></path>
+        <path d="
+        M 190 105
+        L 330 105
+        A 100,100,1,0,1 330 340
+        L 190 340
+        L 190 280
+        L 330 280
+        A 60,60,1,0,0 330 170
+        L 190 170     
+        Z" fill="#1E2858"></path>
+
+    </svg>
+    <!-- E -->
+    <svg id="peng-e" x="1152" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+        M 130 440
+        L 430 440
+        L 430 370
+        L 230 370
+        L 230 300
+        L 430 300
+        L 430 230
+        L 230 230
+        L 230 160
+        L 430 160
+        L 430 105
+        L 130 105
+        L 130 440
+        Z" fill="#1E2858"></path>
+    </svg>
+    <!-- N -->
+    <svg id="peng-n" x="1285" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+        M 130 105
+        L 230 105
+        L 330 270
+        L 330 105
+        L 430 105
+        L 430 440
+        L 330 440
+        L 230 270
+        L 230 440
+        L 130 440
+        L 130 105
+        Z" fill="#1E2858"></path>
+    </svg>
+    <!-- G -->
+    <svg id="peng-g" x="1420" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+        M 310 230
+        L 440 230
+        A 400,400,0, 0, 1, 440 300
+        A 170,170,0, 1, 1, 380 120
+        L 350 170
+        A 110,110,0, 1, 0, 380 290
+        L 320 290
+        L 320 230
+        Z" fill="#1E2858"></path>
+    </svg>
+    <!-- Z -->
+    <svg id="zi-z" x="1550" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+        M 125 105
+        L 425 105
+        L 425 170
+        L 225 370
+        L 425 370
+        L 425 440
+        L 125 440
+        L 125 370
+        L 325 170
+        L 125 170
+        L 125 105
+        Z" fill="#1E2858"></path>
+
+    </svg>
+    <!-- 中心公式 = (10-1)*114+707-90 = 1643  -->
+    <!-- I -->
+    <svg id="zi-i" x="1643" y="390" width="180" height="180" viewBox="0 0 550 550">
+        <path d="
+    M 225 105
+    L 325 105
+    L 325 440
+    L 225 440
+    L 225 105
+    Z" fill="#1E2858"></path>
+    </svg>
+
+</svg>
