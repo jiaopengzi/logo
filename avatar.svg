@@ -4,7 +4,8 @@
 
     <g fill="#1E2858">
         <!-- 焦 -->
-        <g transform="translate(81 210)">
+        <!-- 手动调高低改这里: translate(81 Y). 当前 Y=236, 用来控制 焦棚子 整组的纵向位置. -->
+        <g transform="translate(81 236)">
             <g transform="scale(0.82)">
                 <g transform="translate(-650 0)">
                     <g id="jiaopengzi-text-jiao" transform="translate(650 0)">
@@ -201,8 +202,9 @@
         </g>
 
         <!-- 字母 -->
+        <!-- 手动调高低改这里: translate(156 Y). 当前 Y=612, 对应 jiaopengzi 上边=668, 用来控制 jiaopengzi 整组的纵向位置. -->
         <!-- 中心公式 = (n-1)*114+707-90 -->
-        <g transform="translate(156 630)">
+        <g transform="translate(156 612)">
             <g transform="scale(0.86)">
                 <g transform="translate(-760 -424)">
                     <!-- 中心公式 = (1-1)*114+707-90 = 617 -->

@@ -74,3 +74,13 @@ magick identify "logo.ico"
 ```cmd
 magick -background none "logo-with-text.svg" -define icon:auto-resize=16,24,32,48,64,128,256 "logo-with-text.ico"
 ```
+
+## 10. 导出 200px 的 avatar.png
+
+说明:
+- `avatar.svg` 是正方形头像, 适合直接导出为 200x200 PNG.
+- 即使保留 `-background none`, 最终仍会按 SVG 内的黄色背景导出.
+
+```cmd
+magick -background none "avatar.svg" -resize 200x200 -alpha on PNG32:"avatar-200.png"
+```
