@@ -1,0 +1,350 @@
+<svg id="jiaopengzi-logo-svg" width="1080" height="1080" viewBox="0 0 1080 1080" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect id="jiaopengzi-logo-svg-background" x="0" y="0" width="1080" height="1080" fill="#C89828" />
+
+    <g fill="#1E2858">
+        <!-- 焦 -->
+        <g transform="translate(81 210)">
+            <g transform="scale(0.82)">
+                <g transform="translate(-650 0)">
+                    <g id="jiaopengzi-text-jiao" transform="translate(650 0)">
+                        <path id="jiaopengzi-text-jiao-danrenpang" d="
+        M 10 120
+        L 63 40
+        A 50 50, 0, 0, 1, 63 106
+        L 63 276
+        A 50 50, 0, 0, 1, 23 236
+        L 23 144
+        L 10 155
+        A 50 50, 0, 0, 1, 10 120
+        Z" />
+                        <path id="jiaopengzi-text-jiao-dian" d="
+        M 165 50
+        A 50 50, 0, 0, 1, 210 50
+        L 228 73
+        A 50 50, 0, 0, 1, 193 73
+        L 165 50
+        Z" />
+                        <path id="jiaopengzi-text-jiao-sihengyishu" d="
+        M 83 126
+        A 50 50, 0, 0, 1, 115 90
+        L 291 90
+        A 50 50, 0, 0, 1, 330 128
+        L 219 128
+        L 219 140
+        L 291 140
+        A 50 50, 0, 0, 1, 330 176
+        L 219 176
+        L 219 188
+        L 291 188
+        A 50 50, 0, 0, 1, 330 224
+        L 219 224
+        L 219 236
+        L 291 236
+        A 50 50, 0, 0, 1, 330 272
+        L 83 272
+        A 50 50, 0, 0, 1, 115 236
+        L 185 236
+        L 185 224
+        L 83 224
+        A 50 50, 0, 0, 1, 115 188
+        L 185 188
+        L 185 176
+        L 83 176
+        A 50 50, 0, 0, 1, 115 140
+        L 185 140
+        L 185 128
+        L 83 126
+        Z" />
+                        <path id="jiaopengzi-text-jiao-sidian1" d="
+        M 22 296
+        A 40 40, 0, 0, 1, 62 336
+        L 62 390
+        A 40 40, 0, 0, 1, 22 350
+        L 22 296
+        Z" />
+                        <path id="jiaopengzi-text-jiao-sidian2" d="
+        M 109 296
+        A 40 40, 0, 0, 1, 149 336
+        L 149 390
+        A 40 40, 0, 0, 1, 109 350
+        L 109 296
+        Z" />
+                        <path id="jiaopengzi-text-jiao-sidian3" d="
+        M 197 296
+        A 40 40, 0, 0, 1, 237 336
+        L 237 390
+        A 40 40, 0, 0, 1, 197 350
+        L 197 296
+        Z" />
+                        <path id="jiaopengzi-text-jiao-sidian4" d="
+        M 287 296
+        A 40 40, 0, 0, 1, 327 336
+        L 327 390
+        A 40 40, 0, 0, 1, 287 350
+        L 287 296
+        Z" />
+                    </g>
+
+                    <!-- 棚 -->
+                    <g id="jiaopengzi-text-peng" transform="translate(1050 0)">
+                        <path id="jiaopengzi-text-peng-mu" d="
+        M 42 40
+        A 58 58, 0, 0, 1, 63 93
+        L 105 93
+        A 50 50, 0, 0, 1, 77 133
+        L 63 133
+        L 63 345
+        A 50 50, 0, 0, 1, 42 390
+        L 42 133
+        L 2 133
+        A 50 50, 0, 0, 1, 21 93
+        L 42 93
+        L 42 50
+        Z" />
+                        <path id="jiaopengzi-text-peng-pie" d="
+        M 33 140
+        L 33 310
+        A 50 50, 0, 0, 1, 12 340
+        L 12 170
+        A 50 50, 0, 0, 1, 33 140
+        Z" />
+                        <path id="jiaopengzi-text-peng-na" d="
+        M 70 140
+        A 50 50, 0, 0, 1, 90 170
+        L 90 300
+        A 50 50, 0, 0, 1, 70 270
+        L 70 140
+        Z" />
+                        <path id="jiaopengzi-text-peng-yue1" d="
+        M 135 74
+        L 185 74
+        A 50 50, 0, 0, 1, 215 119
+        L 215 390
+        A 50 50, 0, 0, 1, 185 340
+        L 185 119
+        L 135 119
+        L 135 340
+        A 50 50, 0, 0, 1, 105 390
+        L 105 119
+        A 50 50, 0, 0, 1, 135 74
+        Z" />
+                        <path id="jiaopengzi-text-peng-heng1" d="
+        M 130 170
+        L 200 170
+        L 200 200
+        L 130 200
+        L 130 170
+        Z" />
+                        <path id="jiaopengzi-text-peng-heng2" d="
+        M 130 250
+        L 200 250
+        L 200 280
+        L 130 280
+        L 130 250
+        Z" />
+
+                        <path id="jiaopengzi-text-peng-yue2" d="
+        M 255 74
+        L 305 74
+        A 50 50, 0, 0, 1, 335 119
+        L 335 390
+        A 50 50, 0, 0, 1, 305 340
+        L 305 119
+        L 255 119
+        L 255 340
+        A 50 50, 0, 0, 1, 225 390
+        L 225 119
+        A 50 50, 0, 0, 1, 255 74
+        Z" />
+                        <path id="jiaopengzi-text-peng-heng3" d="
+        M 250 170
+        L 320 170
+        L 320 200
+        L 250 200
+        L 250 170
+        Z" />
+                        <path id="jiaopengzi-text-peng-heng4" d="
+        M 250 250
+        L 320 250
+        L 320 280
+        L 250 280
+        L 250 250
+        Z" />
+                    </g>
+
+                    <!-- 子 -->
+                    <g id="jiaopengzi-text-zi" transform="translate(1450 0)">
+                        <path id="jiaopengzi-text-zi-zi" d="
+        M 100 60
+        L 210 60
+        A 35 35, 0, 0, 1, 240 110
+        L 185 215
+        L 300 215
+        A 50 50, 0, 0, 1, 330 245
+        L 185 245
+        L 185 390
+        A 50 50, 0, 0, 1, 155 365
+        L 155 245
+        L 10 245
+        A 50 50, 0, 0, 1, 40 215
+        L 155 215
+        A 50 50, 0, 0, 1, 160 200
+        L 215 100
+        A 8 8, 0, 0, 0, 208 90
+        L 70 90
+        A 50 50, 0, 0, 1, 100 60
+        Z" />
+                    </g>
+                </g>
+            </g>
+        </g>
+
+        <!-- 字母 -->
+        <!-- 中心公式 = (n-1)*114+707-90 -->
+        <g transform="translate(156 630)">
+            <g transform="scale(0.86)">
+                <g transform="translate(-760 -424)">
+                    <!-- 中心公式 = (1-1)*114+707-90 = 617 -->
+                    <!-- J -->
+                    <g id="jiao-j" transform="translate(590 390) scale(0.3272727273)">
+                        <path d="
+    M 220 355
+    L 170.627461 355
+    A 80,80 1 0,0 250,445
+    A 130,130 1 0,0 380,315
+    L 380 105
+    L 250 105
+    L 250 185
+    L 300 185
+    L 300 315
+    A 50,50 1 0,1 220,355
+    Z" />
+                    </g>
+                    <!-- I -->
+                    <g id="jiao-i" transform="translate(685 390) scale(0.3272727273)">
+                        <path d="
+    M 245 105
+    L 325 105
+    L 325 440
+    L 245 440
+    L 245 105
+    Z" />
+                    </g>
+                    <!-- A -->
+                    <g id="jiao-a" transform="translate(780 390) scale(0.3272727273)">
+                        <path d="
+    M 140 440
+    L 230 100
+    A 100,100 1 0,1 330 100
+    L 420 440
+    A 60,60 1 0,1 340 400
+    L 280 170
+    L 220 400
+    A 60,60 1 0,1 140 440
+    Z" />
+                        <path d="
+    M 215 285
+    L 345 285
+    L 345 365
+    L 215 365
+    Z" />
+                    </g>
+                    <!-- O -->
+                    <g id="jiao-o" transform="translate(905 390) scale(0.3272727273)">
+                        <ellipse cx="280" cy="270" rx="130" ry="150" fill="none" stroke="#1E2858" stroke-width="80" />
+                    </g>
+                    <!-- P -->
+                    <g id="peng-p" transform="translate(1020 390) scale(0.3272727273)">
+                        <path d="
+    M 190 105
+    L 270 105
+    L 270 450
+    L 190 450
+    Z" />
+                        <path d="
+        M 190 105
+        L 330 105
+        A 100,100,1,0,1 330 330
+        L 190 330
+        L 190 260
+        L 330 260
+        A 40,40,1,0,0 330 175
+        L 190 175
+        Z" />
+                    </g>
+                    <!-- E -->
+                    <g id="peng-e" transform="translate(1152 390) scale(0.3272727273)">
+                        <path d="
+        M 160 450
+        L 430 450
+        L 430 380
+        L 240 380
+        L 240 305
+        L 400 305
+        L 400 235
+        L 240 235
+        L 240 175
+        L 430 175
+        L 430 105
+        L 160 105
+        Z" />
+                    </g>
+                    <!-- N -->
+                    <g id="peng-n" transform="translate(1285 390) scale(0.3272727273)">
+                        <path d="
+        M 150 105
+        L 230 105
+        L 330 260
+        L 330 105
+        L 410 105
+        L 410 450
+        L 330 450
+        L 230 285
+        L 230 450
+        L 150 450
+        Z" />
+                    </g>
+                    <!-- G -->
+                    <g id="peng-g" transform="translate(1420 390) scale(0.3272727273)">
+                        <path transform="matrix(1, 0, 0, 1.02985, 0, -3.134)" d="
+        M 288 264
+        L 430 264
+        A 350,350,0, 0, 1, 420 334
+        A 170,170,0, 1, 1, 380 154
+        L 340 214
+        A 110,110,0, 1, 0, 360 324
+        L 288 324
+        Z" stroke="#1E2858" stroke-width="8" />
+                    </g>
+                    <!-- Z -->
+                    <g id="zi-z" transform="translate(1550 390) scale(0.3272727273)">
+                        <path d="
+        M 145 105
+        L 425 105
+        L 425 175
+        L 225 380
+        L 425 380
+        L 425 450
+        L 145 450
+        L 145 380
+        L 335 175
+        L 145 175
+        Z" />
+                    </g>
+                    <!-- 中心公式 = (10-1)*114+707-90 = 1643  -->
+                    <!-- I -->
+                    <g id="zi-i" transform="translate(1643 390) scale(0.3272727273)">
+                        <path d="
+    M 245 105
+    L 325 105
+    L 325 440
+    L 245 440
+    L 245 105
+    Z" />
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
