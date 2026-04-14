@@ -29,5 +29,11 @@
         "statusBar.debuggingForeground": "#EFFEEF",
         "statusBar.noFolderBackground": "#032F03",
         "statusBar.noFolderForeground": "#EFFEEF"
-    }
+    },
+    "cSpell.words": [
+        "IHDR",
+        "magick",
+        "RGBA",
+        "xlink"
+    ]
 }
