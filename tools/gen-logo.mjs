@@ -3,7 +3,7 @@
  * Author      : jiaopengzi
  * Blog        : https://jiaopengzi.com
  * Copyright   : Copyright (c) 2026 by jiaopengzi, All Rights Reserved.
- * Description : 参数化生成方形图标, 横版 (含紧凑版与深色版) 与头像 SVG, 在仓库根目录运行 node tools/gen-logo.mjs.
+ * Description : 参数化生成方形图标, 横版 (含紧凑版与深色版), 头像与 NSIS 安装包竖图 SVG, 在仓库根目录运行 node tools/gen-logo.mjs.
  */
 
 import fs from 'node:fs';
@@ -57,6 +57,12 @@ const COMPACT = { scale: 1.2, left: 660, width: 2024 };
 
 /** AVATAR 头像参数: k 为缩放, cnCenter 与 latinCenter 为两行中线 (1080 的 0.382 与 0.618 黄金分割点). */
 const AVATAR = { k: 0.82, cnCenter: 412.5, latinCenter: 667.5 };
+
+/**
+ * INSTALLER NSIS 安装包欢迎页竖图参数, 构图沿用旧版, 画布为 NSIS 推荐尺寸 164x314 的约 3.35 倍.
+ * jTop 为 J 图标顶边 (底边约在高度 0.382 处), textTop 为字标顶边 (约在高度 0.618 处), k 为字标缩放.
+ */
+const INSTALLER = { width: 550, height: 1054, jTop: 62, textTop: 652, k: 0.45 };
 
 /** LT 字母坐标系的大写顶线 T 与基线 B. */
 const LT = { T: 105, B: 440 };
@@ -984,6 +990,37 @@ ${renderLatin(lr, '            ')}
   return { name, svg };
 }
 
+/**
+ * buildInstaller 生成 NSIS 安装包欢迎页竖图: 金色底, 上方为 J 图标, 下方为 焦棚子 与 JIAOPENGZI 两行字标.
+ * 构图沿用旧版, 由此导出的 logo_w164_h314.bmp 用于 MUI_WELCOMEFINISHPAGE_BITMAP.
+ * @returns {{name: string, svg: string}} 文件名与 SVG 文本.
+ */
+function buildInstaller() {
+  const name = 'logo_w550_h1054.svg';
+  const { width, height, jTop, textTop, k } = INSTALLER;
+  const { cnLeft, cnRight, cnTop } = LAYOUT;
+  const x = (width - (cnRight - cnLeft) * k) / 2;
+  // ICON_J_D 的 J 框为 x -60..150, y -240..100, 平移 230 时与 logo.svg 一样水平居中
+  const svg = `${fileHeader(name, 'NSIS 安装包欢迎页竖图, 金色底上方为 J 图标, 下方为 焦棚子 与 JIAOPENGZI 两行字标.')}${svgOpen(width, height, name, '焦棚子 JIAOPENGZI')}
+    <rect id="jiaopengzi-logo-svg-background" x="0" y="0" width="${width}" height="${height}" fill="${GOLD}" />
+
+    <g fill="${NAVY}">
+        <!-- J 图标与 logo.svg 同形, 底边约在高度 0.382 处 -->
+        <path id="jiaopengzi-logo-svg-j" transform="translate(230 ${jTop + 240})" d="
+${ICON_J_D.map((c) => `            ${c}`).join('\n')}" />
+
+        <!-- 字标: 两行左右对齐, 缩放 ${k} 后水平居中, 顶边约在高度 0.618 处 -->
+        <g transform="translate(${fmt(x)} ${textTop}) scale(${k}) translate(${-cnLeft} ${-cnTop})">
+${renderCn(cnRow(), '            ')}
+
+${renderLatin(latinRow(), '            ')}
+        </g>
+    </g>
+</svg>
+`;
+  return { name, svg };
+}
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = [
   buildLogo(),
@@ -992,6 +1029,7 @@ const outputs = [
   buildCompact('light'),
   buildCompact('dark'),
   buildAvatar(),
+  buildInstaller(),
 ];
 for (const { name, svg } of outputs) {
   fs.writeFileSync(path.join(ROOT, name), svg.replace(/\n/g, EOL));

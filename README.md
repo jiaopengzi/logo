@@ -17,6 +17,7 @@
 | 深色背景 | `logo-with-text-dark.svg`, 小尺寸用 `logo-compact-dark.svg` |
 | 头像, 显示尺寸大于 64px | `avatar.svg` |
 | 头像显示尺寸不超过 64px, favicon | `logo.svg` (头像可上传第 7 节导出的 `logo400h.png`) |
+| NSIS 安装包欢迎页与完成页 | `logo_w550_h1054.svg` (按第 12 节导出 `logo_w164_h314.bmp`) |
 
 ## 重新生成 SVG
 
@@ -123,4 +124,23 @@ magick -background none -density 384 "avatar.svg" -filter Triangle -resize 50x50
 magick -background none -density 384 "logo-compact.svg" -filter Triangle -resize x40 -alpha on PNG32:"logo-compact-40h.png"
 magick -background none -density 384 "logo-compact-dark.svg" -filter Triangle -resize x40 -alpha on PNG32:"logo-compact-dark-40h.png"
 magick -background none -density 384 "logo-with-text-dark.svg" -filter Triangle -resize x50 -alpha on PNG32:"logo-with-text-dark-50h.png"
+```
+
+## 12. 导出 NSIS 安装包欢迎页图片
+
+说明:
+
+- `logo_w550_h1054.svg` 是安装包欢迎页与完成页的竖图, 构图沿用旧版: 金色底, 上方 J 图标的底边约在高度 0.382 处, 下方 焦棚子 与 JIAOPENGZI 两行字标的顶边约在 0.618 处.
+- 画布是 NSIS 推荐尺寸 164x314 的约 3.35 倍, 比例相差不到 0.1%, 可直接缩放.
+- `logo_w164_h314.bmp` 用于 `MUI_WELCOMEFINISHPAGE_BITMAP`, 与旧版一致导出为不含透明通道的 24 位 BMP3, 兼容性最好.
+
+```cmd
+magick -background none -density 384 "logo_w550_h1054.svg" -filter Triangle -resize 550x1054 -alpha on PNG32:"logo_w550_h1054.png"
+magick -density 384 "logo_w550_h1054.svg" -filter Triangle -resize 164x314 -alpha off -type TrueColor BMP3:"logo_w164_h314.bmp"
+```
+
+检查 BMP, 输出应包含 `BMP3 164x314` 与 `8-bit sRGB`:
+
+```cmd
+magick identify "logo_w164_h314.bmp"
 ```
