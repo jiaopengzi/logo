@@ -41,19 +41,25 @@ const A_TOP_R = 30;
 /** CN_H 中文字身高度. */
 const CN_H = 350;
 
-// 各字笔画宽: SV 为竖向笔画宽, SH 为横向笔画高; 笔画多的字略细, 使三字灰度一致.
-const W_JIAO = { SV: 34, SH: 31 };
-const W_PENG = { SV: 33, SH: 29 };
-const W_ZI = { SV: 36, SH: 32 };
+// 各字笔画宽: SV 为竖向笔画宽, SH 为横向笔画高; 笔画多的字略细, 笔画少的 子 略粗, 使三字灰度接近.
+const W_JIAO = { SV: 34, SH: 30 };
+const W_PENG = { SV: 32, SH: 29 };
+const W_ZI = { SV: 38, SH: 34 };
 
 /**
  * LAYOUT 横版排版参数.
- * cnLeft, cnRight 为中文行左右边界, cnTop 为中文行顶, cnW 为三字字宽, latinS 为字母缩放, rowGap 为两行间距.
+ * cnLeft, cnRight 为两行的左右对齐边界 (字母行两端对齐于此), cnTop 为中文行顶, cnW 为三字字宽,
+ * cnGaps 为三字字框间距, latinS 为字母缩放, rowGap 为两行间距.
+ * 子 右侧开放, 按 cnGaps 排布后其横向右越过 cnRight 18 (光学悬出), 与字母行末的 I 视觉对齐;
+ * 棚 子 字框间距略小, 抵消 子 左侧的大片留白.
  */
-const LAYOUT = { cnLeft: 652, cnRight: 1780, cnTop: 22, cnW: [345, 345, 345], latinS: 0.32, rowGap: 50 };
+const LAYOUT = { cnLeft: 652, cnRight: 1780, cnTop: 22, cnW: [345, 345, 345], cnGaps: [59, 52], latinS: 0.32, rowGap: 50 };
 
-/** COMPACT 紧凑横版参数: scale 为中文行放大倍数, left 为中文行左边界, width 为画布宽. */
-const COMPACT = { scale: 1.2, left: 660, width: 2024 };
+/** EDGE 横版与紧凑版的右侧留白 (最右墨迹到画布右边). */
+const EDGE = 10;
+
+/** COMPACT 紧凑横版参数: scale 为中文行放大倍数, left 为中文行左边界; 画布宽按中文行右边界加 EDGE 求得. */
+const COMPACT = { scale: 1.2, left: 660 };
 
 /** AVATAR 头像参数: k 为缩放, cnCenter 与 latinCenter 为两行中线 (1080 的 0.382 与 0.618 黄金分割点). */
 const AVATAR = { k: 0.82, cnCenter: 412.5, latinCenter: 667.5 };
@@ -313,6 +319,30 @@ function unit(dx, dy) {
   return [dx / L, dy / L];
 }
 
+/**
+ * slantDot 生成斜点: 上下水平切断的平行四边形, 钝角做固定半径圆角, 锐角柔化.
+ * 右倾时右上与左下为钝角, 与 '\\' 笔势的叶形角位置一致; 左倾时左上与右下为钝角.
+ * @param {number} cx - 半高处的中心 x.
+ * @param {number} y0 - 顶边 y.
+ * @param {number} y1 - 底边 y.
+ * @param {number} w - 水平宽.
+ * @param {number} ang - 倾角 (度), 正值右倾, 负值左倾.
+ * @param {number} r - 钝角圆角半径.
+ * @returns {Array<Array>} 路径命令.
+ */
+function slantDot(cx, y0, y1, w, ang, r) {
+  const dx = (y1 - y0) * Math.tan((ang * Math.PI) / 180);
+  const tl = { x: cx - dx / 2 - w / 2, y: y0 };
+  const tr = { x: cx - dx / 2 + w / 2, y: y0 };
+  const br = { x: cx + dx / 2 + w / 2, y: y1 };
+  const bl = { x: cx + dx / 2 - w / 2, y: y1 };
+  const o = { r };
+  const a = { soft: true };
+  return ang >= 0
+    ? poly([{ ...tl, ...a }, { ...tr, ...o }, { ...br, ...a }, { ...bl, ...o }])
+    : poly([{ ...tl, ...o }, { ...tr, ...a }, { ...br, ...o }, { ...bl, ...a }]);
+}
+
 // ---------------- 中文字形 (局部坐标 x 0..345, y 0..350) ----------------
 
 /**
@@ -329,22 +359,25 @@ function glyphJiao(P = W_JIAO) {
     'danrenpang-pie',
     poly(band([82, -10], [14, 112], SV, { cutY: 0, sharp: 'minX' }, { cutY: 110, sharp: 'minX' })),
   ]);
-  const DOT = 52;
-  const rows = [70, 125, 180, 235];
+  // 点为斜平行四边形, 缩小后仍清晰; 顶点, 四横, 灬 之间的白缝均为 22
+  const DOT = { w: 42, h: 60, r: 22 };
+  const rows = [82, 134, 186, 238];
   const last = rows[3] + SH;
-  g.push(['danrenpang-shu', vbar(28, 60, 28 + SV, last + 6, 'flat', '\\')]);
+  g.push(['danrenpang-shu', vbar(28, 60, 28 + SV, last + 2, 'flat', '\\')]);
   // 隹: 顶点, 四横一竖
   const vx = 188;
-  g.push(['dian', vbar(vx, 0, vx + SV, DOT, '\\', '\\')]);
+  g.push(['dian', slantDot(vx + SV / 2, 0, DOT.h, DOT.w, 12, DOT.r)]);
   const xs = 90;
   const rights = [322, 302, 302, 345];
   rows.forEach((y, i) => g.push([`heng${i + 1}`, hbar(xs, y, rights[i], y + SH, '\\', '\\')]));
   g.push(['shu', vbar(vx, rows[0], vx + SV, last, 'flat', 'flat')]);
-  // 灬: 首点左向, 余三点右向
-  const dots = [8, 106, 204, 302];
-  dots.forEach((x, i) => {
-    const pen = i === 0 ? '/' : '\\';
-    g.push([`sidian${i + 1}`, vbar(x, CN_H - DOT, x + SV, CN_H, pen, pen)]);
+  // 灬: 首点左倾, 余三点右倾且末点更斜; 四点外缘占满 4..341, 中心等距
+  const angs = [-20, 12, 12, 20];
+  const half = (a) => DOT.w / 2 + Math.abs(DOT.h * Math.tan((a * Math.PI) / 180)) / 2;
+  const c1 = 4 + half(angs[0]);
+  const c4 = 341 - half(angs[3]);
+  angs.forEach((a, i) => {
+    g.push([`sidian${i + 1}`, slantDot(c1 + ((c4 - c1) * i) / 3, CN_H - DOT.h, CN_H, DOT.w, a, DOT.r)]);
   });
   return g;
 }
@@ -392,11 +425,16 @@ function glyphPeng(P = W_PENG) {
   g.push(['mu-heng', hbar(0, 76, 100, 76 + SH, '\\', '\\')]);
   // 撇与点的起笔端藏在横竖交叉区内, 避免交接处出现细小缺口
   g.push(['mu-pie', poly(band([mx + SV / 2, 80], [6, 236], SV - 2, {}, { cutY: 230, sharp: 'minX' }))]);
-  g.push(['mu-dian', poly(band([mx + SV / 2, 84], [92, 166], SV - 4, {}, { cutY: 160, sharp: 'maxX' }))]);
+  // 点: 倾角 30 度, 笔宽 30, 收笔右尖 x 112, 底切 y 174; 由右尖反求中线, 起笔沿竖的中线竖切
+  const a = (30 * Math.PI) / 180, tn = Math.tan(a), w = 30, tip = 112, cut = 174;
+  const xc = tip - w / Math.cos(a) / 2;
+  const S = [xc - (cut - 40) * tn, 40];
+  const E = [xc + 10 * tn, cut + 10];
+  g.push(['mu-dian', poly(band(S, E, w, { cutX: mx + SV / 2 }, { cutY: cut, sharp: 'maxX' }))]);
   // 月 月
   const inner = [110, 194];
-  for (const [id, d] of yue(122, 220, 22, inner, P)) g.push([`yue1-${id}`, d]);
-  for (const [id, d] of yue(244, 345, 22, inner, P)) g.push([`yue2-${id}`, d]);
+  for (const [id, d] of yue(126, 222, 22, inner, P)) g.push([`yue1-${id}`, d]);
+  for (const [id, d] of yue(246, 345, 22, inner, P)) g.push([`yue2-${id}`, d]);
   return g;
 }
 
@@ -409,8 +447,8 @@ function glyphZi(P = W_ZI) {
   const { SV, SH } = P;
   const g = [];
   const y0 = 22; // 顶横上沿
-  const xl = 62;
-  const B = [272, y0]; // 横撇外转角
+  const xl = 50;
+  const B = [278, y0]; // 横撇外转角
   const vx0 = 173 - SV / 2, vx1 = vx0 + SV; // 弯钩竖
   const u = unit(-84, 120); // 撇段方向 (外沿)
   const nUL = [-u[1], u[0]]; // 指向左上 (内沿方向)
@@ -512,16 +550,19 @@ function polyCmds(pts) {
 
 /**
  * letterA 生成字母 A, 顶部两角带半径 A_TOP_R 的圆弧.
+ * 中空为平顶梯形, 与外侧平顶呼应, 避免三角尖角在小尺寸下被填满; 横杠偏低略细, 使中空更大.
  * @returns {{w: number, cmds: Array<Array>, evenodd: boolean}} 字宽, 路径命令与填充规则标记.
  */
 function letterA() {
-  const W = 316, apex = 60, legH = 78; // legH: 腿水平厚
+  const W = 330, apex = 96, legH = 78; // legH: 腿水平厚
   const s = (W - apex) / 2 / 335; // dx/dy
   const xl = (y) => s * (440 - y); // 左外沿
   const xli = (y) => legH + s * (440 - y); // 左内沿
   const xri = (y) => W - legH - s * (440 - y);
-  const barT = 318, barB = 380;
-  const yApexIn = 440 - (W - 2 * legH) / (2 * s);
+  const barT = 334, barB = 392;
+  const flat = 26; // 中空平顶宽
+  const yApexIn = 440 - (W - 2 * legH) / (2 * s); // 两腿内沿的交点
+  const yTop = yApexIn + flat / (2 * s);
   const outer = poly([
     { x: 0, y: 440 },
     { x: xl(105), y: 105, r: A_TOP_R },
@@ -533,9 +574,10 @@ function letterA() {
     { x: legH, y: 440 },
   ]);
   const hole = [
-    [(xli(yApexIn) + xri(yApexIn)) / 2, yApexIn],
+    [xli(yTop), yTop],
     [xli(barT), barT],
     [xri(barT), barT],
+    [xri(yTop), yTop],
   ];
   return { w: W, cmds: [...outer, ...polyCmds(hole)], evenodd: true };
 }
@@ -712,8 +754,8 @@ const LETTERS = [
 /** KERN 间距修正 (字母单位), 键为 左字母右侧类型-右字母左侧类型. */
 const KERN = {
   'st-st': 0,
-  'st-dg': -34,
-  'dg-rd': -40,
+  'st-dg': -29,
+  'dg-rd': -35,
   'rd-st': -14,
   'rd-op': -14,
   'pb-st': -30,
@@ -749,18 +791,26 @@ function layoutLetters(totalW, s) {
 // ---------------- 排版与输出 ----------------
 
 /**
- * cnRow 生成中文行三字及其位置, 三字字距相等.
+ * cnRow 生成中文行三字及其位置, 字框间距取 LAYOUT.cnGaps.
  * @returns {Array<{id: string, name: string, x: number, y: number, parts: Array<Array>}>} 字列表.
  */
 function cnRow() {
-  const { cnLeft, cnRight, cnTop, cnW } = LAYOUT;
-  const gap = (cnRight - cnLeft - cnW.reduce((a, b) => a + b, 0)) / 2;
-  const xs = [cnLeft, cnLeft + cnW[0] + gap, cnLeft + cnW[0] + cnW[1] + 2 * gap];
+  const { cnLeft, cnTop, cnW, cnGaps } = LAYOUT;
+  const xs = [cnLeft, cnLeft + cnW[0] + cnGaps[0], cnLeft + cnW[0] + cnGaps[0] + cnW[1] + cnGaps[1]];
   return [
     { id: 'jiaopengzi-text-jiao', name: '焦', x: xs[0], y: cnTop, parts: glyphJiao() },
     { id: 'jiaopengzi-text-peng', name: '棚', x: xs[1], y: cnTop, parts: glyphPeng() },
     { id: 'jiaopengzi-text-zi', name: '子', x: xs[2], y: cnTop, parts: glyphZi() },
   ];
+}
+
+/**
+ * cnRowRight 求中文行右边界 (子 字框右沿), 含 子 的光学悬出, 用于确定画布宽.
+ * @returns {number} 右边界 x.
+ */
+function cnRowRight() {
+  const { cnLeft, cnW, cnGaps } = LAYOUT;
+  return cnLeft + cnW.reduce((a, b) => a + b, 0) + cnGaps.reduce((a, b) => a + b, 0);
 }
 
 /**
@@ -917,7 +967,7 @@ function buildLogoWithText(theme) {
   const desc = dark
     ? '深色背景用横版 logo, 字标为金色, J 图标不变.'
     : '横版 logo, 左侧为 J 图标, 右侧为 焦棚子 与 JIAOPENGZI 两行字标.';
-  const svg = `${fileHeader(name, desc)}${svgOpen(1790, 550, name, '焦棚子 JIAOPENGZI')}
+  const svg = `${fileHeader(name, desc)}${svgOpen(cnRowRight() + EDGE, 550, name, '焦棚子 JIAOPENGZI')}
 
 ${iconGroup()}
     <g fill="${dark ? GOLD : NAVY}">
@@ -943,7 +993,8 @@ function buildCompact(theme) {
     ? '深色背景用紧凑横版 logo, 字标为金色, J 图标不变.'
     : '紧凑横版 logo, J 图标加 焦棚子 单行, 用于高度不超过 40px 的场景.';
   const { cnLeft, cnTop } = LAYOUT;
-  const { scale, left, width } = COMPACT;
+  const { scale, left } = COMPACT;
+  const width = Math.round(left + (cnRowRight() - cnLeft) * scale + EDGE);
   const top = (550 - CN_H * scale) / 2;
   const svg = `${fileHeader(name, desc)}${svgOpen(width, 550, name, '焦棚子')}
 
@@ -968,6 +1019,7 @@ function buildAvatar() {
   const lr = latinRow();
   const { k, cnCenter, latinCenter } = AVATAR;
   const { cnLeft, cnRight, cnTop } = LAYOUT;
+  // 按两行对齐边界居中, 子 的光学悬出不计入
   const x = (1080 - (cnRight - cnLeft) * k) / 2;
   const yCn = cnCenter - (CN_H * k) / 2;
   const yLa = latinCenter - (335 * LAYOUT.latinS * k) / 2;
@@ -999,6 +1051,7 @@ function buildInstaller() {
   const name = 'logo_w550_h1054.svg';
   const { width, height, jTop, textTop, k } = INSTALLER;
   const { cnLeft, cnRight, cnTop } = LAYOUT;
+  // 按两行对齐边界居中, 子 的光学悬出不计入
   const x = (width - (cnRight - cnLeft) * k) / 2;
   // ICON_J_D 的 J 框为 x -60..150, y -240..100, 平移 230 时与 logo.svg 一样水平居中
   const svg = `${fileHeader(name, 'NSIS 安装包欢迎页竖图, 金色底上方为 J 图标, 下方为 焦棚子 与 JIAOPENGZI 两行字标.')}${svgOpen(width, height, name, '焦棚子 JIAOPENGZI')}
