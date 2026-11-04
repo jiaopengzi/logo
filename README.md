@@ -144,3 +144,7 @@ magick -density 384 "logo_w550_h1054.svg" -filter Triangle -resize 164x314 -alph
 ```cmd
 magick identify "logo_w164_h314.bmp"
 ```
+
+## 版权与使用
+
+本仓库的 logo, 字标与图标保留所有权利, 仅允许在介绍, 链接 jiaopengzi 及其博客与项目时按原样展示, 不适用任何开源协议, 详见 [LICENSE](LICENSE). 其他用途请联系 jiaopengzi@qq.com.
